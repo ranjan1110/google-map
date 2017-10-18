@@ -84,11 +84,11 @@ def makeYqlQuery(req):
 
 
 def makeWebhookResult(data):
-    results = data.get('results')
-    if results is None:
-        return {}
+    #results = data.get('results')
+    #if results is None:
+     #   return {}
 
-    formatted_address_1 = results.get('0').get('formatted_address')
+    formatted_address_1 = data['results'][0]['formatted_address']
     if formatted_address_1 is None:
         return {}
 
