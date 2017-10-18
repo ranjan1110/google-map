@@ -52,9 +52,9 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "map":
         return {}
-    baseurl = "https://maps.googleapis.com/maps/api/place/textsearch/json"
-    yql_query = makeYqlQuery(req)
-    if yql_query is None:
+    #baseurl = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+    yql_url = makeYqlQuery(req)
+    if yql_url is None:
         return {}
     
     result = urlopen(yql_url).read()
