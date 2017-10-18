@@ -72,8 +72,11 @@ def makeYqlQuery(req):
     if city is None:
         return None
     url_1="https://maps.googleapis.com/maps/api/place/textsearch/json?query="
-    for i in cityarr:
-        url_1=url_1+ i
+    url_1=url_1 + cityarr[0]
+    c=len(cityarr)
+
+    for i in range(1,c):
+          url_1=url_1+ '+' + cityarr[i]
         
     url_1=url_1+"&key=" +"AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
     
