@@ -88,7 +88,7 @@ def makeWebhookResult(data):
     if results is None:
         return {}
 
-    formatted_address_1 = results.get('formatted_address')
+    formatted_address_1 = results.get('0').get('formatted_address')
     if formatted_address_1 is None:
         return {}
 
