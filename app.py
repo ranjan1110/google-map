@@ -66,8 +66,10 @@ def processRequest(req):
 def makeYqlQuery(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    city = parameters.get("passportoffice")
+    city = parameters.get("geo-city")
+    item = parameters.get("itemssss")
     cityarr=city.split(" ")
+    itemarr=item.split(" ")
     
     if city is None:
         return None
@@ -77,8 +79,12 @@ def makeYqlQuery(req):
 
     for i in range(1,c):
           url_1=url_1+ '+' + cityarr[i]
+    for i in itemarr:
+          url_1 = url_1 + '+' + i
+ 
         
-    url_1=url_1+"&key=" +"AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
+        
+    url_1=url_1+ '+'+"office"+"&key=" +"AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
     
     return url_1
 
