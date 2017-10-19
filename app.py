@@ -138,7 +138,12 @@ def makeWebhookResult(data,data_1):
         return {}
     phone=data_1['result']['formatted_phone_number']
     weekday=data_1['result']['opening_hours']['weekday_text'][0]
-    
+    weekday1=data_1['result']['opening_hours']['weekday_text'][1]
+    weekday2=data_1['result']['opening_hours']['weekday_text'][2]
+    weekday3=data_1['result']['opening_hours']['weekday_text'][3]
+    weekday4=data_1['result']['opening_hours']['weekday_text'][4]
+    weekday5=data_1['result']['opening_hours']['weekday_text'][5]
+    weekday6=data_1['result']['opening_hours']['weekday_text'][6]
     #item = channel.get('item')
     #location = channel.get('location')
     #units = channel.get('units')
@@ -151,7 +156,7 @@ def makeWebhookResult(data,data_1):
 
     # print(json.dumps(item, indent=4))
 
-    speech = name + " \n address of the office is " + formatted_address_1 + " \n----phone no is "+phone+ "\n---daily opening hours"+"\n"+weekday
+    speech = name + " \n address of the office is " + formatted_address_1 + " \n phone no is "+phone+ "\n daily opening hours \n"+weekday+"\n"+weekday1+"\n"+weekday2+"\n"+weekday3+"\n"+weekday4+"\n"+weekday5+"\n"+weekday6
 
     print("Response:")
     print(speech)
