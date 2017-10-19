@@ -59,7 +59,15 @@ def processRequest(req):
     
     result = urlopen(yql_url).read()
     data = json.loads(result)
-    res = makeWebhookResult(data)
+    place_id_1=data['results'][0]['place_id']
+    
+    yql_url_1=makeYqlQuery1(req,place_id_1)
+    if yql_url_1 is None:
+        return {}
+    result_1 = urlopen(yql_url_1).read()
+    data_1 = json.loads(result_1)
+    
+    res = makeWebhookResult(data,data_1)
     return res
 
 
@@ -88,8 +96,35 @@ def makeYqlQuery(req):
     
     return url_1
 
+def makeYqlQuery1(req,place_id_1):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    city = parameters.get("geo-city")
+    item = parameters.get("itemssss")
+    cityarr=city.split(" ")
+    itemarr=item.split(" ")
+    
+    if city is None:
+        return None
+    '''url_1="https://maps.googleapis.com/maps/api/place/textsearch/json?query="
+    url_1=url_1 + cityarr[0]
+    c=len(cityarr)
 
-def makeWebhookResult(data):
+    for i in range(1,c):
+          url_1=url_1+ '+' + cityarr[i]
+    for i in itemarr:
+          url_1 = url_1 + '+' + i
+ 
+        
+        
+    url_1=url_1+ '+'+"office"+"&key=" +"AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
+    
+    return url_1'''
+    url_2="https://maps.googleapis.com/maps/api/place/details/json?placeid="+place_id_1+"&key=AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
+    return url_2
+
+
+def makeWebhookResult(data,data_1):
     #results = data.get('results')
     #if results is None:
      #   return {}
@@ -97,7 +132,10 @@ def makeWebhookResult(data):
     formatted_address_1 = data['results'][0]['formatted_address']
     if formatted_address_1 is None:
         return {}
-
+    place_id_1=data['results'][0]['place_id']
+    if place_id_1 is None:
+        return {}
+    phone=data_1['result']['formatted_phone_number']
     
     #item = channel.get('item')
     #location = channel.get('location')
@@ -111,7 +149,7 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "address of the office is " + formatted_address_1
+    speech = "address of the office is " + formatted_address_1 +"    and the phone no is "+phone
 
     print("Response:")
     print(speech)
