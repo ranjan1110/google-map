@@ -150,7 +150,7 @@ def makeWebhookResult(data,data_1):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "address of the office is " + formatted_address_1 +\n+ "--------phone no is "+phone+ \n+ "--------daily opening hours"+ \n+weekday
+    speech = "address of the office is " + formatted_address_1 +\n+ "--------phone no is "+phone+ "_______________________________________________________________________"+ "_______daily opening hours"+ "___________________________________________________________________________"+weekday
 
     print("Response:")
     print(speech)
