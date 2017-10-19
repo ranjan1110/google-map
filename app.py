@@ -130,6 +130,7 @@ def makeWebhookResult(data,data_1):
      #   return {}
 
     formatted_address_1 = data['results'][0]['formatted_address']
+    name = data['results'][0]['name']
     if formatted_address_1 is None:
         return {}
     place_id_1=data['results'][0]['place_id']
@@ -150,7 +151,7 @@ def makeWebhookResult(data,data_1):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "address of the office is " + formatted_address_1 + "--------phone no is "+phone+ "_______________________________________________________________________"+ "_______daily opening hours"+ "___________________________________________________________________________"+weekday
+    speech = name + " /n address of the office is " + formatted_address_1 + " /n----phone no is "+phone+ "/n---daily opening hours"+"/n"+weekday
 
     print("Response:")
     print(speech)
