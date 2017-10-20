@@ -137,24 +137,27 @@ def makeWebhookResult(data,data_1):
     if place_id_1 is None:
         return {}
     phone=data_1['result']['formatted_phone_number']
-    weekday=data_1['result']['opening_hours']['weekday_text'][0]
-    weekday1=data_1['result']['opening_hours']['weekday_text'][1]
-    weekday2=data_1['result']['opening_hours']['weekday_text'][2]
-    weekday3=data_1['result']['opening_hours']['weekday_text'][3]
-    weekday4=data_1['result']['opening_hours']['weekday_text'][4]
-    weekday5=data_1['result']['opening_hours']['weekday_text'][5]
-    weekday6=data_1['result']['opening_hours']['weekday_text'][6]
-    #item = channel.get('item')
-    #location = channel.get('location')
-    #units = channel.get('units')
-    #if (location is None) or (item is None) or (units is None):
-     #   return {}
-
-    #condition = item.get('condition')
-    #if condition is None:
-     #   return {}
-
-    # print(json.dumps(item, indent=4))
+    
+    if weekday != None:
+          weekday=data_1['result']['opening_hours']['weekday_text'][0]
+          weekday1=data_1['result']['opening_hours']['weekday_text'][1]
+          weekday2=data_1['result']['opening_hours']['weekday_text'][2]
+          weekday3=data_1['result']['opening_hours']['weekday_text'][3]
+          weekday4=data_1['result']['opening_hours']['weekday_text'][4]
+          weekday5=data_1['result']['opening_hours']['weekday_text'][5]
+          weekday6=data_1['result']['opening_hours']['weekday_text'][6]
+    else :
+          speech = name + " \n address of the office is " + formatted_address_1 + " \n \n phone no is "+phone
+          print("Response:")
+          print(speech)
+          return {
+              "speech": speech,
+              "displayText": speech,
+        
+        
+              "source": "https://github.com/ranjan1110/google-map"}
+    
+    
 
     speech = name + " \n address of the office is " + formatted_address_1 + " \n \n phone no is "+phone+ "\n \n daily opening hours \n \n"+weekday+"\n \n"+weekday1+"\n \n"+weekday2+"\n \n"+weekday3+"\n \n"+weekday4+"\n \n"+weekday5+"\n \n"+weekday6
 
