@@ -137,7 +137,15 @@ def makeWebhookResult(data,data_1):
     if place_id_1 is None:
         return {}
     phone=data_1['result']['formatted_phone_number']
-    weekday=data_1['result']['opening_hours']['weekday_text'][0]
+    weekday="Not Available"
+    weekday1="Not Available"
+    weekday2="Not Available"
+    weekday3="Not Available"
+    weekday4="Not Available"
+    weekday5="Not Available"
+    weekday6="Not Available"
+    
+    
     
     if weekday != None:
           weekday=data_1['result']['opening_hours']['weekday_text'][0]
@@ -147,16 +155,7 @@ def makeWebhookResult(data,data_1):
           weekday4=data_1['result']['opening_hours']['weekday_text'][4]
           weekday5=data_1['result']['opening_hours']['weekday_text'][5]
           weekday6=data_1['result']['opening_hours']['weekday_text'][6]
-    else :
-          speech = name + " \n address of the office is " + formatted_address_1 + " \n \n phone no is "+phone
-          print("Response:")
-          print(speech)
-          return {
-              "speech": speech,
-              "displayText": speech,
-        
-        
-              "source": "https://github.com/ranjan1110/google-map"}
+    
     
     
 
