@@ -147,16 +147,15 @@ def makeWebhookResult(data,data_1):
                 weekday4=data_1['result']['opening_hours']['weekday_text'][4]
                 weekday5=data_1['result']['opening_hours']['weekday_text'][5]
                 weekday6=data_1['result']['opening_hours']['weekday_text'][6]
-     else:
-         speech = name + " \n address of the office is " + formatted_address_1 + " \n \n phone no is "+phone
-         print("Response:")
-         print(speech)
-         return {
-              "speech": speech,
-              "displayText": speech,
-              "source": "https://github.com/ranjan1110/google-map"}
-             
-    
+    else:
+        speech = name + " \n address of the office is " + formatted_address_1 + " \n \n phone no is "+phone
+        print("Response:")
+        print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "source": "https://github.com/ranjan1110/google-map"
+        }
     
 
     speech = name + " \n address of the office is " + formatted_address_1 + " \n \n phone no is "+phone+ "\n \n daily opening hours \n \n"+weekday+"\n \n"+weekday1+"\n \n"+weekday2+"\n \n"+weekday3+"\n \n"+weekday4+"\n \n"+weekday5+"\n \n"+weekday6
