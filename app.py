@@ -92,7 +92,7 @@ def makeYqlQuery(req):
  
         
         
-    url_1=url_1+ '+'+"office"+"&key=" +"AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
+    url_1=url_1+ '+'+"office"+"&key=" +"AIzaSyD0HnUitzdPovQlJ-ifc2BbU6lm04QTtxE"
     
     return url_1
 
@@ -117,10 +117,10 @@ def makeYqlQuery1(req,place_id_1):
  
         
         
-    url_1=url_1+ '+'+"office"+"&key=" +"AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
+    url_1=url_1+ '+'+"office"+"&key=" +"AIzaSyD0HnUitzdPovQlJ-ifc2BbU6lm04QTtxE"
     
     return url_1'''
-    url_2="https://maps.googleapis.com/maps/api/place/details/json?placeid="+place_id_1+"&key=AIzaSyBQXZ8seATtUAP9dBU366r4vwsKOjuKPYs"
+    url_2="https://maps.googleapis.com/maps/api/place/details/json?placeid="+place_id_1+"&key=AIzaSyD0HnUitzdPovQlJ-ifc2BbU6lm04QTtxE"
     return url_2
 
 
