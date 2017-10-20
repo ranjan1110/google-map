@@ -137,6 +137,7 @@ def makeWebhookResult(data,data_1):
     if place_id_1 is None:
         return {}
     phone=data_1['result']['formatted_phone_number']
+    weekday=data_1['result']['opening_hours']['weekday_text'][0]
     
     if weekday != None:
           weekday=data_1['result']['opening_hours']['weekday_text'][0]
